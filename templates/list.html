@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+* {
+  box-sizing: border-box;
+}
+
+/* Add a gray background color with some padding */
+body {
+  font-family: Arial;
+  padding: 20px;
+  background: #f1f1f1;
+}
+
+/* Header/Blog Title */
+
+/* Create two unequal columns that floats next to each other */
+
+/* Add a card effect for articles */
+.card {
+   background-color: white;
+   padding: 20px;
+   margin-top: 20px;
+}
+
+
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+  .leftcolumn, .rightcolumn {
+    width: 100%;
+    padding: 0;
+  }
+}
+</style>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+<h1>Posts</h1>
+      {% for post in object_list %}
+<div class="row form-group">
+
+    <div class="card">
+    Title of study:{{ post.Title }}<br>
+    Place of study: {{post.Place_of_study}}<br>
+    Principal Investigator: {{ post.Prin_invest }}<br>
+    Name:{{ post.Name }}<br>
+    Designation: {{ post.Desig }}<br>
+    Name of research fellow: {{ post.NAme_of_research_fellow }}<br>
+    Invitation Paragraph: {{ post.Invitation_paragraph}}<br>
+    Introduction: {{ post.Intro }}<br>
+    Why am I being requested to participate in this study: {{ post.Why_am_i  }}<br>
+    Duration of individual patient participation: {{ post.Duration  }}<br>
+    How many subjects will be participating in the study: {{ post.How_many }}<br>
+    Is my participation Compulsory?: {{ post.IS_my_part }}<br>
+    Can I withdraw from the study: {{ post.Can_i_withdraw }}<br>
+    What will be done at the first visit?: {{ post.What_will_be_done}}<br>
+    What are my responsibilities: {{ post.What_are_my_responsibility }}<br>
+    What are the foreseeable risk/discomforts/inconvience involved: {{ post.What_are_risk }}<br>
+    What about the confidentiality of my dada? :{{ post.Confidentiality }}<br>
+    Whom can I contact for more information?: {{ post.Whom_contact }}<br>
+   <button><a href= "{% url 'sample1' post.id %}">Add Post</a><br></button>
+
+
+  </div>
+
+</div>
+{% endfor %}
+
+
+
+{% endblock %}

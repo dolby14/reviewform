@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<meta charset="UTF-8">
+    <title>Comment</title>
+<div class="row form-group">
+<b><h4>
+{% for mov in comment %}
+    {{ mov.created }}==>
+    {{ mov.title }}
+    {{ mov.body }}
+    <br>
+{% endfor %}
+</h4></b>
+</div>
+ <form method="post">
+        {% csrf_token %}
+        {% for field in form2 %}
+                                    <div class = "row form-group">
+
+                                                <div class="col col-md-3">
+                                                    {{ field.label_tag }}
+                                                    </div>
+                                        {% for error in field.errors %}
+                                            <p>{{ error }}</p>
+                                            {% endfor %}
+                                        <div class="col-12 col-md-9">
+                                            {{ field }}
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+        <input type="submit">
+    </form>
+
+{% endblock %}
